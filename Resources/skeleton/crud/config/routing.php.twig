@@ -30,8 +30,8 @@ $collection->add('{{ route_name_prefix }}_new', new Route('/new', array(
 $collection->add('{{ route_name_prefix }}_create', new Route(
     '/create',
     array('_controller' => '{{ bundle }}:{{ entity }}:create'),
-    array('_method' => 'post')
-));
+    array(),
+    array(),'', 'POST');
 {% endif %}
 
 {% if 'edit' in actions %}
@@ -42,7 +42,10 @@ $collection->add('{{ route_name_prefix }}_edit', new Route('/{id}/edit', array(
 $collection->add('{{ route_name_prefix }}_update', new Route(
     '/{id}/update',
     array('_controller' => '{{ bundle }}:{{ entity }}:update'),
-    array('_method' => 'post|put')
+    array(),
+    array(),
+    '',
+    array('POST', 'PUT')
 ));
 {% endif %}
 
